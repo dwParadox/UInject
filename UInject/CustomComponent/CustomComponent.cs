@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 using System.Collections.Generic;
 
 using UnityEngine;
@@ -31,6 +32,20 @@ namespace UInject
                 UDebug.Log(LogMessageType.ERROR, "<CustomComponent.Register> " + e.ToString());
             }
 
+        }
+
+        public T GetPrivateField<T>(object obj, string fieldName)
+        {
+            T fieldData = (T)obj.GetType().GetField(fieldName, BindingFlags.NonPublic)?.GetValue(obj);
+            if (fieldData != null)
+                return fieldData;
+            else
+                return default(T);
+        }
+
+        public void SetPrivateField<T>(object obj, string fieldName, object value)
+        {
+            obj.GetType().GetField(fieldName, BindingFlags.NonPublic)?.SetValue(obj, value);
         }
 
         protected virtual void Start() { }
