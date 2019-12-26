@@ -95,7 +95,7 @@
             this.txtDllNamespace.ReadOnly = false;
             this.txtDllNamespace.Size = new System.Drawing.Size(231, 29);
             this.txtDllNamespace.TabIndex = 11;
-            this.txtDllNamespace.Text = "ForestCheat";
+            this.txtDllNamespace.Text = "RoRCheat";
             this.txtDllNamespace.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtDllNamespace.TextColor = System.Drawing.Color.White;
             this.txtDllNamespace.UseSystemPasswordChar = false;
@@ -195,8 +195,8 @@
             this.txtDllPath.ReadOnly = false;
             this.txtDllPath.Size = new System.Drawing.Size(200, 29);
             this.txtDllPath.TabIndex = 4;
-            this.txtDllPath.Text = "C:\\Users\\Korbin Ellis\\source\\repos\\UInject-Forest\\UInject-Forest\\bin\\Release\\UInj" +
-    "ect-Forest.dll";
+            this.txtDllPath.Text = "C:\\Users\\Korbin Ellis\\source\\repos\\UInject_RoR2\\UInject_RoR2\\bin\\Release\\UInject_" +
+    "RoR2.dll";
             this.txtDllPath.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtDllPath.TextColor = System.Drawing.Color.White;
             this.txtDllPath.UseSystemPasswordChar = false;

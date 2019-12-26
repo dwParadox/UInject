@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomComponent\ComponentHelper.cs" />
     <Compile Include="CustomComponent\ComponentRegistrar.cs" />
     <Compile Include="CustomComponent\CustomComponent.cs" />
     <Compile Include="UDebug\UDebug.cs" />

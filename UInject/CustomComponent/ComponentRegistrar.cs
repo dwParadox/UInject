@@ -55,40 +55,26 @@ namespace UInject
 
         private static void ProcessRegistration(Type sourceType, Type newType)
         {
-            int registerCount = 0;
-
             var objects = FindObjectsOfType(sourceType);
 
             if (objects.Length <= 0)
                 return;
 
-            foreach (var obj in objects)
+            foreach (var c in objects)
             {
-                var gameObj = obj as Component;
+                var component = c as Component;
 
-                if (gameObj == null)
-                {
-                    UDebug.Log(LogMessageType.ERROR, sourceType.Name + " could not be converted to GameObject, continuing.");
-                    continue;
-                }
-
-                if (gameObj.gameObject == null)
-                {
-                    UDebug.Log(LogMessageType.ERROR, sourceType.Name + " was null, continuing.");
-                    continue;
-                }
-
-                if (gameObj.GetComponentInParent(newType) != null)
+                if (component == null)
                     continue;
 
-                gameObj.gameObject.AddComponent(newType);
+                if (component.gameObject == null)
+                    continue;
 
-                registerCount++;
+                if (component.GetComponentInParent(newType) != null)
+                    continue;
+
+                component.gameObject.AddComponent(newType);
             }
-
-            if (registerCount > 0)
-                UDebug.Log(LogMessageType.INFO, "(" + newType.Name + ") " + registerCount + " instances registered.");
         }
-
     }
 }

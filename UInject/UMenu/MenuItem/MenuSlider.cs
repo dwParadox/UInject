@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace UInject.UMenu
 {
@@ -17,7 +18,7 @@ namespace UInject.UMenu
         public override void Handle(int itemId, Rect pos)
         {
             GUI.color = Color.white;
-            GUI.Label(pos, Title);
+            GUI.Label(pos, Title + " (" + Math.Floor(this.Value) + ")");
             this.Value = GUI.HorizontalSlider(new Rect(250f, pos.y + 5f, 230f, 20f), this.Value, this.minValue, this.maxValue);
         }
     }
