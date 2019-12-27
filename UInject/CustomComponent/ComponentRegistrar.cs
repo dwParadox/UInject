@@ -22,7 +22,7 @@ namespace UInject
 
     public class ComponentRegistrar : MonoBehaviour
     {
-        private const int PollingDelay = 5000;
+        private const int PollingDelay = 250;
         private static long lastUpdateTime;
 
         private static List<RegisteredComponent> _components = new List<RegisteredComponent>();
