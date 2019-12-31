@@ -9,6 +9,7 @@ namespace UInject
     {
         private void Start()
         {
+            UDebug.Log(LogMessageType.INFO, "=====================================================================");
             UDebug.Log(LogMessageType.INFO, "UInject Framework - Loaded");
         }
 

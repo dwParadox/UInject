@@ -11,9 +11,8 @@ namespace UInject
     {
         private static LogManager logManager = new LogManager(
             new List<ILogChannel> {
-                new LogToScreen(20),
-//              new LogToFile(@"C:\Users\Public\Documents\ForestLog.txt")
-
+                //new LogToScreen(20),
+                new LogToFile(@"C:\Users\Public\Documents\UInjectLog.txt")
             });
 
         public static void Log(LogMessageType messageType, string message)

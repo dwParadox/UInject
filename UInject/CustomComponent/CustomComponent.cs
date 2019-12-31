@@ -24,8 +24,9 @@ namespace UInject
             {
                 ComponentRegistrar.Register(typeof(TSource), typeof(TNew));
             }
-            catch
+            catch (Exception e)
             {
+                UDebug.Log(LogMessageType.ERROR, $"Error registering component ({typeof(TNew).Name}): {e.ToString()}");
             }
 
         }

@@ -30,7 +30,7 @@ namespace UInject.UMenu
 
             return null;
         }
-
+        
         /*
         public dynamic this[string index] 
         {
@@ -58,6 +58,25 @@ namespace UInject.UMenu
             }
         }
 
+        public string GetInput(string index)
+        {
+            foreach (var i in menuItems)
+            {
+                if (index.Equals(i.Title))
+                    return i.Input;
+            }
+
+            return "";
+        }
+        public void SetInput(string index, string value)
+        {
+            foreach (var i in menuItems)
+            {
+                if (index.Equals(i.Title))
+                    i.Input = value;
+            }
+        }
+
         public bool GetEnabled(string index)
         {
             foreach (var i in menuItems)
@@ -77,10 +96,30 @@ namespace UInject.UMenu
             }
         }
 
+        private static bool _stateSet = false;
+        private static CursorLockMode _lastState;
+
         public static void OpenClose()
         {
             if (Input.GetKeyDown(KeyCode.Keypad0))
                 isOpen = !isOpen;
+
+            if (isOpen && _stateSet)
+            {
+                Cursor.lockState = CursorLockMode.None;
+            }
+
+            if (isOpen && !_stateSet)
+            {
+                _stateSet = true;
+                _lastState = Cursor.lockState;
+                Cursor.lockState = CursorLockMode.None;
+            }
+            else if (!isOpen && _stateSet)
+            {
+                _stateSet = false;
+                Cursor.lockState = _lastState;
+            }
         }
     }
 }

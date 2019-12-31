@@ -9,10 +9,10 @@ namespace UInject.UMenu
             this.Title = title;
         }
 
-        public override void Handle(int itemId, Rect pos)
+        public override void Handle(int itemId, Rect pos, GUISkin skin)
         {
             GUI.color = Color.white;
-            GUI.Label(pos, Title);
+            GUI.Label(pos, Title, skin.label);
         }
     }
 }

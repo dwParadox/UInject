@@ -15,11 +15,11 @@ namespace UInject.UMenu
             this.Value = cur;
         }
 
-        public override void Handle(int itemId, Rect pos)
+        public override void Handle(int itemId, Rect pos, GUISkin skin)
         {
             GUI.color = Color.white;
-            GUI.Label(pos, Title + " (" + Math.Floor(this.Value) + ")");
-            this.Value = GUI.HorizontalSlider(new Rect(250f, pos.y + 5f, 230f, 20f), this.Value, this.minValue, this.maxValue);
+            GUI.Label(pos, Title + " (" + Math.Floor(this.Value) + ")", skin.label);
+            this.Value = GUI.HorizontalSlider(new Rect(250f, pos.y + 5f, 210f, 20f), this.Value, this.minValue, this.maxValue, skin.horizontalSlider, skin.horizontalSliderThumb);
         }
     }
 }

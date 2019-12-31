@@ -1,10 +1,16 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UInject.Utilities;
+using System;
+using System.Reflection;
 
 namespace UInject.UMenu
 {
     public class MenuRenderer
     {
+        private MenuSkinSetup skinSetup;
+        private GUISkin guiSkin;
+
         public List<MenuItem> menuItems { get; protected set; }
 
         private float optionBufferSize = 35f;
@@ -15,10 +21,17 @@ namespace UInject.UMenu
         protected string _menuName;
         protected int _menuId;
 
+        private Texture2D mouseTexture;
+
         public MenuRenderer()
         {
+            skinSetup = new MenuSkinSetup();
+            mouseTexture = skinSetup.GetTextureFromResource(Assembly.GetExecutingAssembly(), "UInject.Resources.UInjectMouse.png");
+
             isOpen = false;
             windowPosition = new Rect(50f + (MenuManager.menuManagers.Count) * 510f, 25f, 500f, 30f);
+
+            guiSkin = skinSetup.SetupMenuSkin();
         }
 
         private void windowCallback(int windowId)
@@ -26,7 +39,7 @@ namespace UInject.UMenu
             int itemId = 0;
             foreach (var menuItem in menuItems)
             {
-                menuItem.Handle(itemId, new Rect(10f, 40f + optionBufferSize * itemId, 500f, 30f));
+                menuItem.Handle(itemId, new Rect(10f, optionBufferSize * (itemId - 1), 500f, 30f), guiSkin);
 
                 itemId++;
             }
@@ -39,12 +52,15 @@ namespace UInject.UMenu
             if (!isOpen)
                 return;
 
-            GUI.color = Color.white;
-            GUI.backgroundColor = Color.black;
+            GUI.skin = guiSkin;
 
-            windowPosition.height = 50f + (menuItems.Count * optionBufferSize);
+            windowPosition.height = 370f;
 
-            windowPosition = GUI.Window(_menuId, windowPosition, windowCallback, _menuName);
+            GUI.depth = 1;
+            windowPosition = GUI.Window(_menuId, windowPosition, windowCallback, _menuName, guiSkin.window);
+
+            GUI.depth = 0;
+            GUI.DrawTexture(new Rect(Input.mousePosition.x, Screen.height - Input.mousePosition.y, 32, 32), mouseTexture);
         }
     }
 }

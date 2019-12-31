@@ -49,7 +49,6 @@ namespace UInjectLoader
         {
             if (Utils.GetModuleBase(Process.GetProcessById(monoApp.Id), _expectedProxyPath) == IntPtr.Zero)
             {
-                MessageBox.Show("MonoProxy not found, Loading a new instance.");
                 if (!LoadMonoProxy())
                     throw new Exception("MonoProxy injection failed.");
             }

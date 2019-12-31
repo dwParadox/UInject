@@ -55,6 +55,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -72,6 +73,7 @@
     <Compile Include="CustomComponent\CustomComponent.cs" />
     <Compile Include="UDebug\UDebug.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UGenerics\Generic.cs" />
     <Compile Include="UInject_Load.cs" />
     <Compile Include="UInject_Object.cs" />
     <Compile Include="ULoad\Loader.cs" />
@@ -82,12 +84,51 @@
     <Compile Include="ULog\LogManager.cs" />
     <Compile Include="UMain.cs" />
     <Compile Include="UMenu\MenuItem\MenuAction.cs" />
+    <Compile Include="UMenu\MenuItem\MenuFunc.cs" />
+    <Compile Include="UMenu\MenuItem\MenuInput.cs" />
     <Compile Include="UMenu\MenuItem\MenuItem.cs" />
     <Compile Include="UMenu\MenuItem\MenuLabel.cs" />
+    <Compile Include="UMenu\MenuItem\MenuScroll.cs" />
     <Compile Include="UMenu\MenuItem\MenuSlider.cs" />
     <Compile Include="UMenu\MenuItem\MenuToggle.cs" />
     <Compile Include="UMenu\MenuManager.cs" />
     <Compile Include="UMenu\MenuRenderer.cs" />
+    <Compile Include="UMenu\MenuSkinSetup.cs" />
+    <Compile Include="UResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UResources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="UResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>UResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\UInjectBackground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\UInjectButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\UInjectButtonSelected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\UInjectMouse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\UInjectSlider.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\UInjectSliderThumb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\UInjectToggleOff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\UInjectToggleOn.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
