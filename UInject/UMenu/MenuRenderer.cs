@@ -29,7 +29,12 @@ namespace UInject.UMenu
             mouseTexture = skinSetup.GetTextureFromResource(Assembly.GetExecutingAssembly(), "UInject.Resources.UInjectMouse.png");
 
             isOpen = false;
-            windowPosition = new Rect(50f + (MenuManager.menuManagers.Count) * 510f, 25f, 500f, 30f);
+
+            // Pretty ghetto, get over it :)
+            int menuCount = MenuManager.menuManagers.Count;
+            float xPos = 50f + (menuCount % 3) * 510f;
+            float yPos = 25f + (float)Math.Floor(menuCount / 3f) * 400f;
+            windowPosition = new Rect(xPos, yPos, 500f, 30f);
 
             guiSkin = skinSetup.SetupMenuSkin();
         }
