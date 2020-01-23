@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 
-//Code written by Wildbook
 public static class Reflection
 {
     private static readonly BindingFlags _defaultFlags

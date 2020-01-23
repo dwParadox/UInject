@@ -16,7 +16,7 @@ namespace UInject.UMenu
         {
             this.menuItems = setupAction();
             this._menuName = menuName;
-            this._menuId = 420 + menuManagers.Count;
+            this._menuId = 150 + menuManagers.Count;
             menuManagers.Add(this);
         }
 
@@ -101,7 +101,7 @@ namespace UInject.UMenu
 
         public static void OpenClose()
         {
-            if (Input.GetKeyDown(KeyCode.Keypad0))
+            if (Input.GetKeyDown(KeyCode.DownArrow))
                 isOpen = !isOpen;
 
             if (isOpen && _stateSet)
